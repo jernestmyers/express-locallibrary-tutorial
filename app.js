@@ -10,6 +10,9 @@ var catalogRouter = require("./routes/catalog"); // Import routes for "catalog" 
 
 var app = express();
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 //Set up mongoose connection
 var mongoose = require("mongoose");
 var mongoDB = `${process.env.MongoDB_URL}`;
