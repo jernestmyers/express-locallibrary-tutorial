@@ -50,6 +50,7 @@ exports.bookinstance_create_get = function (req, res, next) {
     res.render("bookinstance_form", {
       title: "Create BookInstance",
       book_list: books,
+      statuses: [`Maintenance`, `Available`, `Loaned`, `Reserved`],
     });
   });
 };
@@ -94,6 +95,7 @@ exports.bookinstance_create_post = [
           selected_book: bookinstance.book._id,
           errors: errors.array(),
           bookinstance: bookinstance,
+          statuses: [`Maintenance`, `Available`, `Loaned`, `Reserved`],
         });
       });
       return;
