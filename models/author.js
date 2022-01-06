@@ -54,5 +54,19 @@ AuthorSchema.virtual("url").get(function () {
   return "/catalog/author/" + this._id;
 });
 
+AuthorSchema.virtual("date_of_birth_formatted").get(function () {
+  const dob_formatted = this.date_of_birth
+    ? DateTime.fromJSDate(this.date_of_birth).toFormat("yyyy-LL-dd")
+    : null;
+  return dob_formatted;
+});
+
+AuthorSchema.virtual("date_of_death_formatted").get(function () {
+  const dod_formatted = this.date_of_death
+    ? DateTime.fromJSDate(this.date_of_death).toFormat("yyyy-LL-dd")
+    : null;
+  return dod_formatted;
+});
+
 //Export model
 module.exports = mongoose.model("Author", AuthorSchema);
